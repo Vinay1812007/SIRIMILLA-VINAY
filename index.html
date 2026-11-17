@@ -90,7 +90,7 @@
     .scrim { position: fixed; inset: 0; z-index: 45; background: rgba(2, 4, 12, .6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .35s; }
     .scrim.open { opacity: 1; pointer-events: auto; }
     body.menu-open { overflow: hidden; }
-    .nav-in { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .nav-in { max-width: 1280px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .logo { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-weight: 700; font-size: 1.05rem; }
     .logo b { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--grad); color: #fff; font-size: .9rem; letter-spacing: -.02em; }
     .links { display: flex; gap: 6px; list-style: none; }
@@ -108,7 +108,7 @@
     .burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
     /* ---------- layout ---------- */
-    section { max-width: 1200px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 40px) 40px; }
+    section { max-width: 1280px; margin: 0 auto; padding: 120px clamp(16px, 4vw, 40px) 40px; }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: .8rem; color: var(--a2); letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
     .eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--a2); }
     h2 { font-family: var(--head); font-size: clamp(2rem, 4.4vw, 3.1rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; margin-bottom: 18px; }
@@ -119,9 +119,10 @@
     .rv, .hero-in { opacity: 0; transform: translateY(40px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: var(--d, 0s); }
     .rv.l { transform: translateX(-50px); } .rv.r { transform: translateX(50px); } .rv.s, .hero-in.s { transform: scale(.9); }
     .rv.in, .hero-in.in { opacity: 1; transform: none; }
+    main { overflow-x: clip; }
 
     /* ---------- hero ---------- */
-    #home { min-height: 100vh; min-height: 100svh; display: grid; grid-template-columns: 1.25fr 1fr; align-items: center; gap: 56px; padding-top: 140px; padding-bottom: 80px; position: relative; }
+    #home { min-height: 100vh; min-height: 100svh; display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 48px; padding-top: 140px; padding-bottom: 80px; position: relative; }
     .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px 8px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--border-hi); font-size: .85rem; color: var(--muted); backdrop-filter: blur(8px); margin-bottom: 28px; }
     .dot { position: relative; width: 8px; height: 8px; border-radius: 50%; background: var(--ok); }
     .dot::after { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--ok); animation: ping 1.6s cubic-bezier(0,0,.2,1) infinite; }
@@ -132,7 +133,11 @@
     h1 .grad { background: var(--grad-loop); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: rise .9s var(--ease) forwards, shine 6s linear infinite; animation-delay: var(--d), 0s; }
     @keyframes rise { to { transform: translateY(0); } }
     @keyframes shine { to { background-position: 200% center; } }
-    .role { font-family: var(--mono); font-size: clamp(1rem, 2.2vw, 1.25rem); margin: 26px 0 18px; color: var(--text); min-height: 1.7em; }
+    .role { font-family: var(--mono); font-size: clamp(1.1rem, 2.4vw, 1.45rem); font-weight: 500; margin: 26px 0 10px; color: var(--text); min-height: 1.7em; }
+    .role2 { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; font-size: .95rem; color: var(--muted); }
+    .role2 .lbl { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--a3); padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(139,92,246,.35); background: rgba(139,92,246,.08); }
+    .role2 svg { width: 16px; height: 16px; color: var(--a2); }
+    .role2 b { color: var(--text); font-weight: 600; }
     .role .pre { color: var(--a2); }
     .caret { display: inline-block; width: 10px; height: 1.15em; vertical-align: -4px; margin-left: 3px; background: var(--a2); animation: blink 1s steps(1) infinite; }
     @keyframes blink { 50% { opacity: 0; } }
@@ -149,7 +154,7 @@
     .hero-soc a { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--card); border: 1px solid var(--border); color: var(--muted); font-size: 1.1rem; transition: transform .3s var(--ease), color .25s, border-color .25s; }
     .hero-soc a:hover { transform: translateY(-4px); color: var(--text); border-color: var(--a1); }
 
-    .visual { position: relative; justify-self: center; width: min(420px, 82vw); aspect-ratio: 1; }
+    .visual { position: relative; justify-self: center; width: min(440px, 82vw); aspect-ratio: 1; }
     .ring { position: absolute; inset: 0; border-radius: 50%; border: 1px dashed var(--border-hi); animation: spin 40s linear infinite; }
     .ring.r2 { inset: 13%; border-style: solid; border-color: var(--border); animation-duration: 28s; animation-direction: reverse; }
     .photo { position: absolute; inset: 20%; border-radius: 50%; padding: 4px; background: conic-gradient(from var(--ang, 0deg), var(--a2), var(--a1), var(--a3), var(--a2)); animation: angle 5s linear infinite; box-shadow: 0 0 80px -10px rgba(59,130,246,.6); }
@@ -157,15 +162,18 @@
     @property --ang { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
     @keyframes angle { to { --ang: 360deg; } }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .orbit { position: absolute; inset: 0; animation: spin 24s linear infinite; }
-    .orbit .o { position: absolute; width: 50px; height: 50px; margin: -25px; border-radius: 14px; display: grid; place-items: center; background: var(--card-solid); border: 1px solid var(--border-hi); color: var(--a2); box-shadow: 0 8px 24px -8px rgba(0,0,0,.6); animation: spin 24s linear infinite reverse; }
+    .orbit { position: absolute; inset: 0; }
+    .orbit .o { position: absolute; width: 50px; height: 50px; margin: -25px; border-radius: 14px; display: grid; place-items: center; background: var(--card-solid); border: 1px solid var(--border-hi); color: var(--a2); box-shadow: 0 8px 24px -8px rgba(0,0,0,.6); animation: bob 5s ease-in-out infinite; animation-delay: var(--dl, 0s); transition: border-color .3s, color .3s; }
+    .orbit .o.main { width: 58px; height: 58px; margin: -29px; color: #fff; background: var(--grad); border-color: transparent; box-shadow: 0 12px 30px -10px rgba(59,130,246,.9); }
+    .orbit .o:hover { border-color: var(--a2); }
+    @keyframes bob { 50% { transform: translateY(-8px); } }
     .orbit .o svg { width: 22px; height: 22px; }
-    .o1 { top: 0; left: 50%; } .o2 { top: 50%; left: 100%; } .o3 { top: 100%; left: 50%; } .o4 { top: 50%; left: 0; }
+    .o1 { top: 0; left: 50%; } .o2 { top: 50%; left: 100%; --dl: -1s; } .o3 { top: 85.4%; left: 85.4%; --dl: -2s; } .o4 { top: 50%; left: 0; --dl: -3s; } .o5 { top: 14.6%; left: 14.6%; --dl: -4s; }
     .chip { position: absolute; display: flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 14px; background: rgba(15,22,41,.85); border: 1px solid var(--border-hi); backdrop-filter: blur(10px); font-size: .82rem; white-space: nowrap; animation: float 5s ease-in-out infinite; box-shadow: 0 12px 30px -12px rgba(0,0,0,.7); }
     .chip strong { font-family: var(--head); font-size: 1.1rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
     .chip span { color: var(--muted); line-height: 1.25; }
-    .chip.c1 { top: 8%; right: -6%; }
-    .chip.c2 { bottom: 10%; left: -10%; animation-delay: -2.5s; }
+    .chip.c1 { top: 7%; right: -8%; z-index: 2; }
+    .chip.c2 { bottom: 1%; left: -8%; z-index: 2; animation-delay: -2.5s; }
     @keyframes float { 50% { transform: translateY(-14px); } }
 
     .scroll-ind { position: absolute; left: 50%; bottom: 24px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--dim); font-family: var(--mono); font-size: .7rem; letter-spacing: .15em; }
@@ -229,6 +237,7 @@
     .card h3 { font-family: var(--head); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
     .card p { color: var(--muted); font-size: .95rem; }
     .card .tag { position: absolute; top: 24px; right: 24px; font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; color: var(--a3); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(139,92,246,.35); background: rgba(139,92,246,.08); }
+    .card .tag.pri-tag { color: var(--a2); border-color: rgba(34,211,238,.4); background: rgba(34,211,238,.08); }
     .card .num { position: absolute; right: 20px; bottom: -18px; font-family: var(--head); font-weight: 800; font-size: 6rem; color: rgba(148,163,184,.05); line-height: 1; pointer-events: none; }
 
     /* ---------- skills ---------- */
@@ -304,7 +313,7 @@
     .soc:hover b svg { transform: translate(3px, -3px); color: var(--text); }
     .soc small { color: var(--muted); font-family: var(--mono); font-size: .74rem; word-break: break-all; margin-top: -8px; }
 
-    footer { max-width: 1200px; margin: 80px auto 0; padding: 48px clamp(16px, 4vw, 40px) 36px; color: var(--dim); font-size: .85rem; border-top: 1px solid var(--border); }
+    footer { max-width: 1280px; margin: 80px auto 0; padding: 48px clamp(16px, 4vw, 40px) 36px; color: var(--dim); font-size: .85rem; border-top: 1px solid var(--border); }
     .f-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; padding-bottom: 28px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
     .f-top .logo { color: var(--text); }
     .f-links { display: flex; flex-wrap: wrap; gap: 6px 22px; }
@@ -337,14 +346,16 @@
       #home { grid-template-columns: 1fr; text-align: center; gap: 40px; padding-top: 120px; }
       #home .visual { order: -1; width: min(300px, 74vw); }
       .hero-p { margin-left: auto; margin-right: auto; }
+      .role2 { justify-content: center; flex-wrap: wrap; }
       .btns, .hero-soc { justify-content: center; }
       .chip { font-size: .75rem; padding: 8px 12px; }
-      .chip.c1 { right: -8%; } .chip.c2 { left: -8%; }
+      .chip.c1 { right: -10%; } .chip.c2 { left: -10%; }
       .scroll-ind { display: none; }
       .stats { grid-template-columns: repeat(2, 1fr); }
       .stat:nth-child(3)::before { display: none; }
       .stat:nth-child(n+3) { border-top: 1px solid var(--border); }
       .about { grid-template-columns: 1fr; }
+      .rv.l, .rv.r { transform: translateY(40px); }
     }
     @media (max-width: 600px) {
       section { padding-top: 96px; }
@@ -369,7 +380,7 @@
       .tl-line { left: 11px; }
       .panel { padding: 22px; }
       .panel:hover { transform: none; }
-      .orbit .o { width: 40px; height: 40px; margin: -20px; border-radius: 12px; }
+      .orbit .o, .orbit .o.main { width: 40px; height: 40px; margin: -20px; border-radius: 12px; }
       .orbit .o svg { width: 18px; height: 18px; }
       #top { right: 16px; bottom: 16px; }
     }
@@ -434,10 +445,11 @@
     <!-- ============ HERO ============ -->
     <section id="home">
       <div>
-        <div class="badge hero-in" style="--d:.2s"><span class="dot"></span>Network Administrator · Hyderabad, India</div>
+        <div class="badge hero-in" style="--d:.2s"><span class="dot"></span>Working full-time · Hyderabad, India</div>
         <h1 id="title"><span class="line" data-split="Sirimilla"></span><span class="line" data-split="Vinay" data-grad></span></h1>
-        <div class="role hero-in" style="--d:1.1s"><span class="pre">&gt;_ </span><span id="typed"></span><span class="caret"></span></div>
-        <p class="hero-p hero-in" style="--d:1.25s">I keep business networks fast, secure and always online — and in my own time I build the <strong style="color:var(--text)">VinaX</strong> family of code, music and AI projects.</p>
+        <div class="role hero-in" style="--d:1.1s"><span class="pre">&gt;_ </span><span id="typed" aria-label="Network Administrator"></span><span class="caret"></span></div>
+        <div class="role2 hero-in" style="--d:1.18s"><span class="lbl">Also</span><svg><use href="#tag-i"/></svg><b>Product Listing Manager</b></div>
+        <p class="hero-p hero-in" style="--d:1.25s">I keep the business networks at <strong style="color:var(--text)">Jobways.com</strong> and <strong style="color:var(--text)">SportsMart.com</strong> fast, secure and always online. I also manage product listings, and in my own time I build the <strong style="color:var(--text)">VinaX</strong> family of code, music and AI projects.</p>
         <div class="btns hero-in" style="--d:1.4s">
           <a href="#contact" class="btn pri magnetic">Get in touch <svg><use href="#arrow"/></svg></a>
           <a href="#projects" class="btn sec magnetic">See my projects</a>
@@ -455,10 +467,11 @@
         <div class="ring r2"></div>
         <div class="photo"><img src="profile.jpg" alt="Sirimilla Vinay" width="576" height="576" /></div>
         <div class="orbit">
-          <div class="o o1"><svg><use href="#net-i"/></svg></div>
-          <div class="o o2"><svg><use href="#code-i"/></svg></div>
-          <div class="o o3"><svg><use href="#music-i"/></svg></div>
-          <div class="o o4"><svg><use href="#ai-i"/></svg></div>
+          <div class="o o1 main" title="Network Administrator"><svg><use href="#net-i"/></svg></div>
+          <div class="o o2" title="Product Listing Manager"><svg><use href="#tag-i"/></svg></div>
+          <div class="o o3" title="VinaX Code"><svg><use href="#code-i"/></svg></div>
+          <div class="o o4" title="VinaX Music"><svg><use href="#music-i"/></svg></div>
+          <div class="o o5" title="VinaX AI"><svg><use href="#ai-i"/></svg></div>
         </div>
         <div class="chip c1"><strong data-years>2+</strong><span>Years in<br />networking</span></div>
         <div class="chip c2"><span class="dot"></span><span>Currently at<br /><b style="color:var(--text)">Jobways · SportsMart</b></span></div>
@@ -573,12 +586,14 @@
       <p class="lead rv" style="--d:.2s">From managing infrastructure to building my own products, here's what I spend my time on.</p>
       <div class="cards">
         <div class="card wide tilt rv" style="--d:.05s">
+          <span class="tag pri-tag">Primary role</span>
           <div class="ico"><svg><use href="#net-i"/></svg></div>
           <h3>Network Administration</h3>
           <p>Setting up, monitoring and maintaining business networks so teams stay connected, secure and productive.</p>
           <span class="num">01</span>
         </div>
         <div class="card wide tilt rv" style="--d:.15s">
+          <span class="tag">Secondary role</span>
           <div class="ico"><svg><use href="#tag-i"/></svg></div>
           <h3>Product Listing Management</h3>
           <p>Creating and managing product listings, keeping catalogs accurate, well-organized and ready to sell.</p>
@@ -748,20 +763,12 @@
     setTimeout(() => { if (document.body.classList.contains("loading")) start(); }, 2200);
 
     /* typing roles */
-    const roles = ["Network Administrator", "Product Listing Manager", "VinaX Code Developer", "VinaX Music Developer", "VinaX AI Developer"];
-    const out = $("#typed");
-    let r = 0, c = 0, del = false, typing = false;
+    const role = "Network Administrator", out = $("#typed");
+    let c = 0, typing = false;
     function typeLoop() {
       if (typing) return; typing = true;
-      (function tick() {
-        const w = roles[r];
-        out.textContent = w.slice(0, c);
-        if (!del && c < w.length) c++;
-        else if (del && c > 0) c--;
-        else if (!del) { del = true; return setTimeout(tick, 1800); }
-        else { del = false; r = (r + 1) % roles.length; }
-        setTimeout(tick, del ? 35 : 75);
-      })();
+      if (reduce) { out.textContent = role; return; }
+      (function tick() { out.textContent = role.slice(0, ++c); if (c < role.length) setTimeout(tick, 70); })();
     }
 
     /* reveal on scroll */
@@ -785,7 +792,7 @@
     /* terminal typing */
     const termLines = [
       ['<span class="p">$</span> whoami', 'sirimilla_vinay'],
-      ['<span class="p">$</span> cat role.txt', '<span class="s">"Network Administrator"</span>'],
+      ['<span class="p">$</span> cat roles.txt', 'primary:   <span class="s">"Network Administrator"</span>\nsecondary: <span class="s">"Product Listing Manager"</span>'],
       ['<span class="p">$</span> cat work.json', '{ <span class="k">"jobways.com"</span>: <span class="s">"2024—now"</span>,\n  <span class="k">"sportsmart.com"</span>: <span class="s">"2025—now"</span> }'],
       ['<span class="p">$</span> ls ~/vinax', '<span class="k">code/  music/  ai/</span>'],
       ['<span class="p">$</span> ping sirimillavinay.online', '<span class="s">64 bytes: status=online ✓</span>']

@@ -4,11 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sirimilla Vinay — Network Administrator</title>
-  <meta name="description" content="Sirimilla Vinay — Network Administrator at Jobways.com and SportsMart.com, Hyderabad. Product Listing Manager and developer of VINAX Code, VINAX Music and VINAX AI." />
+  <meta name="description" content="Sirimilla Vinay — Network Administrator at Jobways.com and SportsMart.com, Hyderabad. Product Listing Manager and developer of VinaX Code, VinaX Music and VinaX AI." />
   <meta name="theme-color" content="#050814" />
   <link rel="canonical" href="https://sirimillavinay.online/" />
   <meta property="og:title" content="Sirimilla Vinay — Network Administrator" />
-  <meta property="og:description" content="Network Administrator · Product Listing Manager · VINAX Developer" />
+  <meta property="og:description" content="Network Administrator · Product Listing Manager · VinaX Developer" />
   <meta property="og:image" content="https://sirimillavinay.online/profile.jpg" />
   <meta property="og:url" content="https://sirimillavinay.online/" />
   <meta property="og:type" content="profile" />
@@ -40,6 +40,7 @@
       --a3: #8b5cf6;
       --ok: #34d399;
       --grad: linear-gradient(110deg, var(--a2) 0%, var(--a1) 50%, var(--a3) 100%);
+      --grad-loop: linear-gradient(110deg, var(--a2), var(--a1), var(--a3), var(--a1), var(--a2));
       --r: 20px;
       --ease: cubic-bezier(.2, .8, .2, 1);
       --head: "Sora", system-ui, sans-serif;
@@ -53,6 +54,10 @@
     a { color: inherit; text-decoration: none; }
     ::selection { background: var(--a1); color: #fff; }
     svg.i { width: 1em; height: 1em; fill: currentColor; }
+    :focus { outline: none; }
+    :focus-visible { outline: 2px solid var(--a2); outline-offset: 3px; border-radius: 10px; }
+    .skip { position: fixed; left: 16px; top: -60px; z-index: 200; padding: 10px 18px; border-radius: 10px; background: var(--a1); color: #fff; font-weight: 600; transition: top .25s var(--ease); }
+    .skip:focus { top: 16px; }
 
     /* ---------- preloader ---------- */
     #loader { position: fixed; inset: 0; z-index: 100; background: var(--bg); display: grid; place-items: center; transition: opacity .6s var(--ease), visibility .6s; }
@@ -78,8 +83,13 @@
 
     /* ---------- progress + nav ---------- */
     #progress { position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 60; background: var(--grad); box-shadow: 0 0 12px var(--a2); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background .3s, border-color .3s, padding .3s; border-bottom: 1px solid transparent; padding: 22px 0; }
-    nav.scrolled { background: rgba(5, 8, 20, .72); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); border-color: var(--border); padding: 14px 0; }
+    #nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; transition: background .3s, border-color .3s, padding .3s; border-bottom: 1px solid transparent; padding: 22px 0; }
+    #nav::before { content: ""; position: absolute; inset: 0; z-index: -1; background: rgba(5, 8, 20, .72); backdrop-filter: blur(16px) saturate(1.4); -webkit-backdrop-filter: blur(16px) saturate(1.4); opacity: 0; transition: opacity .3s; }
+    #nav.scrolled { border-color: var(--border); padding: 14px 0; }
+    #nav.scrolled::before { opacity: 1; }
+    .scrim { position: fixed; inset: 0; z-index: 45; background: rgba(2, 4, 12, .6); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .35s; }
+    .scrim.open { opacity: 1; pointer-events: auto; }
+    body.menu-open { overflow: hidden; }
     .nav-in { max-width: 1200px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 40px); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     .logo { display: flex; align-items: center; gap: 10px; font-family: var(--head); font-weight: 700; font-size: 1.05rem; }
     .logo b { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--grad); color: #fff; font-size: .9rem; letter-spacing: -.02em; }
@@ -119,7 +129,7 @@
     h1 { font-family: var(--head); font-size: clamp(2.8rem, 7.4vw, 5.6rem); font-weight: 800; line-height: .98; letter-spacing: -.045em; }
     h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
     h1 .ch { display: inline-block; transform: translateY(110%); animation: rise .9s var(--ease) forwards; animation-delay: var(--d); }
-    h1 .grad { background: var(--grad); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: rise .9s var(--ease) forwards, shine 6s linear infinite; animation-delay: var(--d), 0s; }
+    h1 .grad { background: var(--grad-loop); background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent; animation: rise .9s var(--ease) forwards, shine 6s linear infinite; animation-delay: var(--d), 0s; }
     @keyframes rise { to { transform: translateY(0); } }
     @keyframes shine { to { background-position: 200% center; } }
     .role { font-family: var(--mono); font-size: clamp(1rem, 2.2vw, 1.25rem); margin: 26px 0 18px; color: var(--text); min-height: 1.7em; }
@@ -131,7 +141,7 @@
     .btn { position: relative; display: inline-flex; align-items: center; gap: 10px; padding: 15px 28px; border-radius: 999px; font-weight: 600; font-size: .95rem; overflow: hidden; transition: transform .3s var(--ease), box-shadow .3s; will-change: transform; }
     .btn svg { width: 18px; height: 18px; transition: transform .3s var(--ease); }
     .btn:hover svg { transform: translateX(4px); }
-    .btn.pri { background: var(--grad); background-size: 200% auto; color: #fff; box-shadow: 0 10px 30px -10px rgba(59,130,246,.7); animation: shine 5s linear infinite; }
+    .btn.pri { background: var(--grad-loop); background-size: 200% auto; color: #fff; box-shadow: 0 10px 30px -10px rgba(59,130,246,.7); animation: shine 5s linear infinite; }
     .btn.pri:hover { box-shadow: 0 16px 40px -10px rgba(59,130,246,.9); }
     .btn.sec { border: 1px solid var(--border-hi); background: var(--card); backdrop-filter: blur(8px); }
     .btn.sec:hover { border-color: var(--a2); }
@@ -236,18 +246,44 @@
     .cta { position: relative; text-align: center; padding: 72px clamp(20px, 5vw, 64px); border-radius: 28px; overflow: hidden; border: 1px solid var(--border-hi); background: linear-gradient(160deg, rgba(59,130,246,.14), rgba(139,92,246,.1) 50%, rgba(5,8,20,.6)); }
     .cta::before { content: ""; position: absolute; width: 600px; height: 600px; left: 50%; top: -340px; margin-left: -300px; border-radius: 50%; background: radial-gradient(circle, rgba(34,211,238,.25), transparent 60%); animation: pulse 5s ease-in-out infinite; pointer-events: none; }
     .cta h2 { font-size: clamp(2.2rem, 5.6vw, 4rem); position: relative; }
-    .proj { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .proj > .card, .proj > .card:last-child { display: flex; flex-direction: column; grid-column: auto; min-width: 0; }
-    .proj .card p { flex: 1; }
-    .proj .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
-    .proj .stack span { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); }
-    .proj .cmd { font-family: var(--mono); font-size: .82rem; color: var(--a2); background: rgba(5,8,20,.6); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 22px; overflow-x: auto; white-space: nowrap; }
-    .proj .cmd::before { content: "$ "; color: var(--dim); }
-    .proj .plinks { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
-    .proj .plinks a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-size: .86rem; font-weight: 600; border: 1px solid var(--border-hi); background: var(--card); transition: border-color .3s, transform .3s var(--ease); }
-    .proj .plinks a.pri { background: var(--grad); border-color: transparent; color: #fff; }
-    .proj .plinks a:hover { transform: translateY(-2px); border-color: var(--a2); }
-    .proj .plinks svg { width: 15px; height: 15px; }
+    .proj { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .proj > .card, .proj > .card:last-child { grid-column: auto; padding: 0; display: flex; flex-direction: column; min-width: 0; }
+    .shot { display: block; position: relative; margin: 12px 12px 0; border-radius: 14px; overflow: hidden; border: 1px solid var(--border-hi); background: #000; }
+    .shot-bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; background: #0c1222; border-bottom: 1px solid var(--border); font-family: var(--mono); font-size: .7rem; color: var(--dim); }
+    .shot-bar i { width: 8px; height: 8px; border-radius: 50%; background: rgba(148,163,184,.22); flex: none; }
+    .shot-bar span { flex: 1; margin: 0 28px 0 10px; padding: 3px 10px; border-radius: 6px; background: rgba(255,255,255,.04); text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .shot-img { position: relative; overflow: hidden; aspect-ratio: 16 / 10; }
+    .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 1.2s var(--ease); }
+    .shot-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(5,8,20,.65)); pointer-events: none; }
+    .shot .open { position: absolute; z-index: 1; right: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-size: .78rem; font-weight: 600; background: rgba(5,8,20,.8); border: 1px solid var(--border-hi); backdrop-filter: blur(8px); opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .4s var(--ease); }
+    .shot .open svg { width: 13px; height: 13px; }
+    .card:hover .shot img { transform: scale(1.05); }
+    .card:hover .shot .open, .shot:focus-visible .open { opacity: 1; transform: none; }
+    .pbody { position: relative; z-index: 1; display: flex; flex-direction: column; flex: 1; padding: 26px 28px 30px; }
+    .ptitle { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+    .ptitle h3 { display: flex; align-items: center; gap: 12px; margin: 0; font-size: 1.35rem; }
+    .ptitle .mini { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: #fff; background: var(--grad); flex: none; box-shadow: 0 8px 20px -8px rgba(59,130,246,.8); }
+    .ptitle .mini svg { width: 18px; height: 18px; }
+    .proj .card .tag { position: static; flex: none; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 20px; }
+    .stack span { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); }
+    .cmd { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: .82rem; color: var(--a2); background: rgba(5,8,20,.6); border: 1px solid var(--border); border-radius: 10px; padding: 6px 6px 6px 14px; margin-bottom: 20px; }
+    .cmd code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; scrollbar-width: none; }
+    .cmd code::before { content: "$ "; color: var(--dim); }
+    .copy { flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 7px; border: 1px solid var(--border); background: rgba(255,255,255,.04); color: var(--muted); font: inherit; font-size: .72rem; cursor: pointer; transition: color .2s, border-color .2s; }
+    .copy:hover { color: var(--text); border-color: var(--border-hi); }
+    .copy.ok { color: var(--ok); border-color: rgba(52,211,153,.4); }
+    .copy svg { width: 13px; height: 13px; }
+    .plinks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
+    .plinks a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; font-size: .88rem; font-weight: 600; border: 1px solid var(--border-hi); background: var(--card); transition: border-color .3s, transform .3s var(--ease), box-shadow .3s; }
+    .plinks a.pri { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 10px 24px -12px rgba(59,130,246,.9); }
+    .plinks a:hover { transform: translateY(-2px); border-color: var(--a2); }
+    .plinks svg { width: 15px; height: 15px; }
+    .card .tag.live-tag { display: inline-flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: .68rem; letter-spacing: .08em; color: var(--ok); padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.08); }
+    .card .tag.live-tag .dot { width: 6px; height: 6px; }
+    .card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: .86rem; font-weight: 600; color: var(--a2); }
+    .card .go svg { width: 15px; height: 15px; transition: transform .3s var(--ease); }
+    a.card:hover .go svg { transform: translate(3px, -3px); }
     .cta .lead { margin: 0 auto 40px; position: relative; }
     .soc-grid { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; text-align: left; }
     .soc { display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 18px; background: rgba(5,8,20,.55); border: 1px solid var(--border); transition: transform .35s var(--ease), border-color .3s, box-shadow .3s; }
@@ -259,7 +295,15 @@
     .soc:hover b svg { transform: translate(3px, -3px); color: var(--text); }
     .soc small { color: var(--muted); font-family: var(--mono); font-size: .74rem; word-break: break-all; margin-top: -8px; }
 
-    footer { max-width: 1200px; margin: 0 auto; padding: 60px clamp(16px, 4vw, 40px) 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; color: var(--dim); font-size: .85rem; border-top: 1px solid var(--border); margin-top: 80px; }
+    footer { max-width: 1200px; margin: 80px auto 0; padding: 48px clamp(16px, 4vw, 40px) 36px; color: var(--dim); font-size: .85rem; border-top: 1px solid var(--border); }
+    .f-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px; padding-bottom: 28px; margin-bottom: 24px; border-bottom: 1px solid var(--border); }
+    .f-top .logo { color: var(--text); }
+    .f-links { display: flex; flex-wrap: wrap; gap: 6px 22px; }
+    .f-links a { color: var(--muted); transition: color .2s; }
+    .f-soc { display: flex; gap: 8px; }
+    .f-soc a { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; border: 1px solid var(--border); color: var(--muted); transition: color .2s, border-color .2s, transform .3s var(--ease); }
+    .f-soc a:hover { transform: translateY(-3px); border-color: var(--a1); }
+    .f-bot { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
     footer a:hover { color: var(--text); }
     #top { position: fixed; right: 24px; bottom: 24px; z-index: 40; width: 48px; height: 48px; border-radius: 14px; border: 1px solid var(--border-hi); background: rgba(15,22,41,.85); backdrop-filter: blur(10px); color: var(--text); display: grid; place-items: center; cursor: pointer; opacity: 0; transform: translateY(20px); pointer-events: none; transition: opacity .3s, transform .3s var(--ease), border-color .3s; }
     #top.show { opacity: 1; transform: none; pointer-events: auto; }
@@ -277,6 +321,7 @@
       .links { position: fixed; top: 0; right: 0; bottom: 0; width: min(300px, 80vw); flex-direction: column; gap: 4px; padding: 100px 24px 24px; background: rgba(10,15,31,.97); backdrop-filter: blur(20px); border-left: 1px solid var(--border); transform: translateX(100%); transition: transform .45s var(--ease); }
       .links.open { transform: none; }
       .links a { font-size: 1.1rem; padding: 14px 16px; }
+      .links { z-index: 1; }
       .links a::after { left: 16px; right: auto; width: 24px; }
       .burger { display: block; z-index: 2; }
       .nav-cta { display: none; }
@@ -296,8 +341,20 @@
       section { padding-top: 96px; }
       .cards { grid-template-columns: 1fr; }
       .card:last-child { grid-column: span 1; }
-      .soc-grid { grid-template-columns: 1fr 1fr; }
+      .soc-grid { grid-template-columns: 1fr; gap: 10px; }
+      .soc { display: grid; grid-template-columns: 44px 1fr; align-items: center; column-gap: 14px; row-gap: 2px; padding: 14px 16px; }
+      .soc .si { grid-row: span 2; }
+      .soc small { margin-top: 0; word-break: normal; overflow-wrap: anywhere; }
+      .cta { padding: 56px 18px 24px; }
       .proj { grid-template-columns: 1fr; }
+      .pbody { padding: 22px 20px 24px; }
+      .ptitle h3 { font-size: 1.2rem; }
+      #home { min-height: auto; padding-top: 104px; padding-bottom: 40px; gap: 28px; }
+      #home .visual { width: min(240px, 64vw); }
+      .chip { display: none; }
+      .stat { padding: 26px 12px; }
+      .stat span { font-size: .8rem; display: block; line-height: 1.35; }
+      .f-top { flex-direction: column; align-items: flex-start; }
       .tl { padding-left: 36px; }
       .tl-node { left: -36px; width: 24px; height: 24px; }
       .tl-line { left: 11px; }
@@ -316,6 +373,7 @@
   </style>
 </head>
 <body class="loading">
+  <a href="#main" class="skip">Skip to content</a>
   <!-- icon sprite -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="gh" viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.6 18.3 5 18.3 5c.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></symbol>
@@ -351,28 +409,29 @@
       <ul class="links" id="links">
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#work">What I Do</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#work">What I Do</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <a href="#contact" class="nav-cta">Let's connect</a>
-      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="links"><span></span><span></span><span></span></button>
     </div>
   </nav>
+  <div class="scrim" id="scrim"></div>
 
-  <main>
+  <main id="main">
     <!-- ============ HERO ============ -->
     <section id="home">
       <div>
         <div class="badge hero-in" style="--d:.2s"><span class="dot"></span>Network Administrator · Hyderabad, India</div>
         <h1 id="title"><span class="line" data-split="Sirimilla"></span><span class="line" data-split="Vinay" data-grad></span></h1>
         <div class="role hero-in" style="--d:1.1s"><span class="pre">&gt;_ </span><span id="typed"></span><span class="caret"></span></div>
-        <p class="hero-p hero-in" style="--d:1.25s">I keep business networks fast, secure and always online — and in my own time I build the <strong style="color:var(--text)">VINAX</strong> family of code, music and AI projects.</p>
+        <p class="hero-p hero-in" style="--d:1.25s">I keep business networks fast, secure and always online — and in my own time I build the <strong style="color:var(--text)">VinaX</strong> family of code, music and AI projects.</p>
         <div class="btns hero-in" style="--d:1.4s">
           <a href="#contact" class="btn pri magnetic">Get in touch <svg><use href="#arrow"/></svg></a>
-          <a href="#experience" class="btn sec magnetic">View experience</a>
+          <a href="#projects" class="btn sec magnetic">See my projects</a>
         </div>
         <div class="hero-soc hero-in" style="--d:1.55s">
           <a href="https://github.com/Vinay1812007" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#gh"/></svg></a>
@@ -404,7 +463,7 @@
         <div class="stat"><b data-count="2" data-suffix="+">0</b><span>Years of experience</span></div>
         <div class="stat"><b data-count="2">0</b><span>Companies</span></div>
         <div class="stat"><b data-count="5">0</b><span>Roles &amp; ventures</span></div>
-        <div class="stat"><b data-count="2">0</b><span>VINAX projects</span></div>
+        <div class="stat"><b data-count="2">0</b><span>VinaX projects</span></div>
       </div>
     </section>
 
@@ -416,7 +475,7 @@
           <h2 class="rv" style="--d:.1s">Keeping systems <em>connected</em>, building what's next.</h2>
           <p class="rv" style="--d:.2s">I'm <strong>Sirimilla Vinay</strong>, a <strong>Network Administrator</strong> based in Hyderabad, Telangana, originally from Mahabubabad. I currently manage networks for <strong>Jobways.com</strong> and <strong>SportsMart.com</strong>.</p>
           <p class="rv" style="--d:.3s">I trained as a <strong>Computer Operator &amp; Programming Assistant (COPA)</strong> at Govt. ITI Mahabubabad and hold a National Trade Certificate. Alongside networking, I work as a <strong>Product Listing Manager</strong>.</p>
-          <p class="rv" style="--d:.4s">Outside work I build <strong>VINAX</strong>, my own line of software, music and AI projects, and I share what I learn on my YouTube channel <strong>ALL IN ONE WITH VINAY</strong>.</p>
+          <p class="rv" style="--d:.4s">Outside work I build <strong>VinaX</strong>, my own line of software, music and AI projects, and I share what I learn on my YouTube channel <strong>ALL IN ONE WITH VINAY</strong>.</p>
         </div>
         <div class="term rv r" style="--d:.2s">
           <div class="term-top"><i></i><i></i><i></i><span>vinay@sv-net: ~</span></div>
@@ -451,6 +510,47 @@
       </div>
     </section>
 
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+      <p class="eyebrow rv">Projects</p>
+      <h2 class="rv" style="--d:.1s">Things I've <em>shipped</em></h2>
+      <p class="lead rv" style="--d:.2s">Live VinaX products you can install or use right now.</p>
+      <div class="proj">
+        <article class="card tilt rv" style="--d:.05s">
+          <a class="shot" href="https://vinax-proxy.onrender.com/" target="_blank" rel="noopener" aria-label="Open the VinaX Code docs">
+            <div class="shot-bar"><i></i><i></i><i></i><span>vinax-proxy.onrender.com</span></div>
+            <div class="shot-img"><img src="assets/vinax-code.jpg" alt="VinaX Code docs page showing the CLI running in a terminal" width="1120" height="700" loading="lazy" decoding="async" /></div>
+            <span class="open">Open docs <svg><use href="#arrow-ur"/></svg></span>
+          </a>
+          <div class="pbody">
+            <div class="ptitle"><h3><span class="mini"><svg><use href="#code-i"/></svg></span>VinaX Code</h3><span class="tag">npm · v2</span></div>
+            <p>An AI coding assistant that runs in your terminal. It reads your codebase, edits files, runs commands and works through multi-step tasks, using free and paid models from Groq, NVIDIA NIM, OpenRouter, Gemini, Anthropic and OpenAI.</p>
+            <div class="stack"><span>CLI</span><span>Node.js</span><span>AI agents</span><span>MCP</span></div>
+            <div class="cmd"><code>npm i -g vinax-code</code><button class="copy" type="button" data-copy="npm i -g vinax-code" aria-label="Copy install command"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>Copy</span></button></div>
+            <div class="plinks">
+              <a class="pri" href="https://www.npmjs.com/package/vinax-code" target="_blank" rel="noopener">View on npm <svg><use href="#arrow-ur"/></svg></a>
+              <a href="https://vinax-proxy.onrender.com/" target="_blank" rel="noopener">Read the docs <svg><use href="#arrow-ur"/></svg></a>
+            </div>
+          </div>
+        </article>
+        <article class="card tilt rv" style="--d:.15s">
+          <a class="shot" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener" aria-label="Open VinaX Music">
+            <div class="shot-bar"><i></i><i></i><i></i><span>vinaxmusic.online</span></div>
+            <div class="shot-img"><img src="assets/vinax-music.jpg" alt="VinaX Music home screen with trending songs and language filters" width="1120" height="700" loading="lazy" decoding="async" /></div>
+            <span class="open">Open app <svg><use href="#arrow-ur"/></svg></span>
+          </a>
+          <div class="pbody">
+            <div class="ptitle"><h3><span class="mini"><svg><use href="#music-i"/></svg></span>VinaX Music</h3><span class="tag">Web · Android</span></div>
+            <p>A free, ad-free music streaming service for India. Songs in 12 languages, with synced lyrics, radio, Listen Together rooms, weekly mixes and personal recommendations, in the browser and on Android.</p>
+            <div class="stack"><span>12 languages</span><span>Synced lyrics</span><span>Offline</span><span>Android</span></div>
+            <div class="plinks">
+              <a class="pri" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener">Listen now <svg><use href="#arrow-ur"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- ============ WHAT I DO ============ -->
     <section id="work">
       <p class="eyebrow rv">What I do</p>
@@ -469,60 +569,28 @@
           <p>Creating and managing product listings, keeping catalogs accurate, well-organized and ready to sell.</p>
           <span class="num">02</span>
         </div>
-        <div class="card tilt rv" style="--d:.05s">
-          <span class="tag">VINAX</span>
-          <div class="ico"><svg><use href="#code-i"/></svg></div>
-          <h3>VINAX Code</h3>
-          <p>My software development work: writing code and building tools and apps under the VINAX name.</p>
-          <span class="num">03</span>
-        </div>
-        <div class="card tilt rv" style="--d:.15s">
-          <span class="tag">VINAX</span>
-          <div class="ico"><svg><use href="#music-i"/></svg></div>
-          <h3>VINAX Music</h3>
-          <p>Developing music projects and audio experiences as part of the VINAX family.</p>
-          <span class="num">04</span>
-        </div>
-        <div class="card tilt rv" style="--d:.25s">
-          <span class="tag">VINAX</span>
-          <div class="ico"><svg><use href="#ai-i"/></svg></div>
-          <h3>VINAX AI</h3>
-          <p>Exploring and building artificial intelligence projects, from experiments to practical tools.</p>
-          <span class="num">05</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ PROJECTS ============ -->
-    <section id="projects">
-      <p class="eyebrow rv">Projects</p>
-      <h2 class="rv" style="--d:.1s">Things I've <em>shipped</em></h2>
-      <p class="lead rv" style="--d:.2s">Live VINAX products you can install or use right now.</p>
-      <div class="proj">
-        <div class="card tilt rv" style="--d:.05s">
-          <span class="tag">npm · v2</span>
+        <a class="card tilt rv" style="--d:.05s" href="#projects">
+          <span class="tag live-tag"><span class="dot"></span>Live</span>
           <div class="ico"><svg><use href="#code-i"/></svg></div>
           <h3>VinaX Code</h3>
-          <p>An AI coding assistant that runs in your terminal. It reads your codebase, edits files, runs commands and works through multi-step tasks, using free and paid models from Groq, NVIDIA NIM, OpenRouter, Gemini, Anthropic and OpenAI.</p>
-          <div class="stack"><span>CLI</span><span>Node.js</span><span>AI agents</span><span>MCP</span></div>
-          <div class="cmd">npm i -g vinax-code</div>
-          <div class="plinks">
-            <a class="pri" href="https://www.npmjs.com/package/vinax-code" target="_blank" rel="noopener">View on npm <svg><use href="#arrow-ur"/></svg></a>
-            <a href="https://vinax-proxy.onrender.com/" target="_blank" rel="noopener">Docs <svg><use href="#arrow-ur"/></svg></a>
-          </div>
-          <span class="num">01</span>
-        </div>
-        <div class="card tilt rv" style="--d:.15s">
-          <span class="tag">Web · Android</span>
+          <p>My software development work: writing code and building tools and apps under the VinaX name.</p>
+          <span class="go">See the project <svg><use href="#arrow-ur"/></svg></span>
+          <span class="num">03</span>
+        </a>
+        <a class="card tilt rv" style="--d:.15s" href="#projects">
+          <span class="tag live-tag"><span class="dot"></span>Live</span>
           <div class="ico"><svg><use href="#music-i"/></svg></div>
           <h3>VinaX Music</h3>
-          <p>A free, ad-free music streaming service for India. Songs in 12 languages, with synced lyrics, radio, Listen Together rooms, weekly mixes and personal recommendations, in the browser and on Android.</p>
-          <div class="stack"><span>12 languages</span><span>Lyrics</span><span>Offline</span><span>Android</span></div>
-          <div class="cmd">open vinaxmusic.online</div>
-          <div class="plinks">
-            <a class="pri" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener">Listen now <svg><use href="#arrow-ur"/></svg></a>
-          </div>
-          <span class="num">02</span>
+          <p>Developing music projects and audio experiences as part of the VinaX family.</p>
+          <span class="go">See the project <svg><use href="#arrow-ur"/></svg></span>
+          <span class="num">04</span>
+        </a>
+        <div class="card tilt rv" style="--d:.25s">
+          <span class="tag">VinaX</span>
+          <div class="ico"><svg><use href="#ai-i"/></svg></div>
+          <h3>VinaX AI</h3>
+          <p>Exploring and building artificial intelligence projects, from experiments to practical tools.</p>
+          <span class="num">05</span>
         </div>
       </div>
     </section>
@@ -585,7 +653,7 @@
       <div class="cta rv s">
         <p class="eyebrow" style="justify-content:center">Contact</p>
         <h2>Let's build something <em>together</em>.</h2>
-        <p class="lead">Have a network to manage, a product to list, or an idea for VINAX? Reach out on any of these platforms.</p>
+        <p class="lead">Have a network to manage, a product to list, or an idea for VinaX? Reach out on any of these platforms.</p>
         <div class="soc-grid">
           <a class="soc rv" style="--c:#6e7681;--d:.05s" href="https://github.com/Vinay1812007" target="_blank" rel="noopener">
             <span class="si"><svg class="i"><use href="#gh"/></svg></span><b>GitHub <svg><use href="#arrow-ur"/></svg></b><small>Vinay1812007</small></a>
@@ -603,8 +671,23 @@
   </main>
 
   <footer>
-    <span>© <span id="yr"></span> Sirimilla Vinay. All rights reserved.</span>
-    <span>Network Administrator · Hyderabad, India</span>
+    <div class="f-top">
+      <a href="#home" class="logo"><b>SV</b>Sirimilla Vinay</a>
+      <nav class="f-links" aria-label="Footer">
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="f-soc">
+        <a href="https://github.com/Vinay1812007" target="_blank" rel="noopener" aria-label="GitHub"><svg class="i"><use href="#gh"/></svg></a>
+        <a href="https://www.linkedin.com/in/sirimillavinay" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="i"><use href="#li"/></svg></a>
+        <a href="https://www.instagram.com/sirimilla_vinay" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a>
+        <a href="https://x.com/VINaYKINg1870" target="_blank" rel="noopener" aria-label="X"><svg class="i"><use href="#x"/></svg></a>
+        <a href="https://www.youtube.com/@ALLINONEWITHVINAY" target="_blank" rel="noopener" aria-label="YouTube"><svg class="i"><use href="#yt"/></svg></a>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="yr"></span> Sirimilla Vinay. All rights reserved.</span>
+      <span>Network Administrator · Hyderabad, India</span>
+    </div>
   </footer>
 
   <button id="top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
@@ -642,11 +725,14 @@
       $$(".hero-in").forEach(e => e.classList.add("in"));
       setTimeout(typeLoop, 1100);
     };
-    window.addEventListener("load", () => setTimeout(start, reduce ? 0 : 900));
-    setTimeout(() => { if (document.body.classList.contains("loading")) start(); }, 3500);
+    let seen = false;
+    try { seen = sessionStorage.getItem("sv-seen") === "1"; sessionStorage.setItem("sv-seen", "1"); } catch (e) {}
+    if (seen) $("#loader").style.transition = "none";
+    window.addEventListener("load", () => setTimeout(start, reduce || seen ? 0 : 350));
+    setTimeout(() => { if (document.body.classList.contains("loading")) start(); }, 2200);
 
     /* typing roles */
-    const roles = ["Network Administrator", "Product Listing Manager", "VINAX Code Developer", "VINAX Music Developer", "VINAX AI Developer"];
+    const roles = ["Network Administrator", "Product Listing Manager", "VinaX Code Developer", "VinaX Music Developer", "VinaX AI Developer"];
     const out = $("#typed");
     let r = 0, c = 0, del = false, typing = false;
     function typeLoop() {
@@ -728,9 +814,25 @@
     topBtn.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
 
     /* mobile menu */
-    const burger = $("#burger"), links = $("#links");
-    burger.addEventListener("click", () => { burger.classList.toggle("open"); links.classList.toggle("open"); });
-    navLinks.forEach(a => a.addEventListener("click", () => { burger.classList.remove("open"); links.classList.remove("open"); }));
+    const burger = $("#burger"), links = $("#links"), scrim = $("#scrim");
+    const setMenu = open => {
+      burger.classList.toggle("open", open); links.classList.toggle("open", open); scrim.classList.toggle("open", open);
+      document.body.classList.toggle("menu-open", open);
+      burger.setAttribute("aria-expanded", open); burger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    };
+    burger.addEventListener("click", () => setMenu(!links.classList.contains("open")));
+    scrim.addEventListener("click", () => setMenu(false));
+    navLinks.forEach(a => a.addEventListener("click", () => setMenu(false)));
+    addEventListener("keydown", e => { if (e.key === "Escape" && links.classList.contains("open")) { setMenu(false); burger.focus(); } });
+    addEventListener("resize", () => { if (innerWidth > 860) setMenu(false); });
+
+    /* copy-to-clipboard buttons */
+    $$("[data-copy]").forEach(btn => btn.addEventListener("click", async () => {
+      const label = $("span", btn);
+      try { await navigator.clipboard.writeText(btn.dataset.copy); label.textContent = "Copied"; btn.classList.add("ok"); }
+      catch (e) { label.textContent = "Press ⌘C"; }
+      setTimeout(() => { label.textContent = "Copy"; btn.classList.remove("ok"); }, 1800);
+    }));
 
     /* pointer effects (desktop only) */
     const glow = $("#glow");

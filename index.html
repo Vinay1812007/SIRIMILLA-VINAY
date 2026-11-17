@@ -21,6 +21,7 @@
   {"@context":"https://schema.org","@type":"Person","name":"Sirimilla Vinay","jobTitle":"Network Administrator","url":"https://sirimillavinay.online/","image":"https://sirimillavinay.online/profile.jpg",
    "worksFor":[{"@type":"Organization","name":"Jobways.com"},{"@type":"Organization","name":"SportsMart.com"}],
    "address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"},
+   "owns":[{"@type":"SoftwareApplication","name":"VinaX Code","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux","url":"https://www.npmjs.com/package/vinax-code"},{"@type":"WebApplication","name":"VinaX Music","applicationCategory":"MultimediaApplication","url":"https://www.vinaxmusic.online/"}],
    "sameAs":["https://github.com/Vinay1812007","https://www.linkedin.com/in/sirimillavinay","https://www.instagram.com/sirimilla_vinay","https://x.com/VINaYKINg1870","https://www.youtube.com/@ALLINONEWITHVINAY"]}
   </script>
   <style>
@@ -235,6 +236,18 @@
     .cta { position: relative; text-align: center; padding: 72px clamp(20px, 5vw, 64px); border-radius: 28px; overflow: hidden; border: 1px solid var(--border-hi); background: linear-gradient(160deg, rgba(59,130,246,.14), rgba(139,92,246,.1) 50%, rgba(5,8,20,.6)); }
     .cta::before { content: ""; position: absolute; width: 600px; height: 600px; left: 50%; top: -340px; margin-left: -300px; border-radius: 50%; background: radial-gradient(circle, rgba(34,211,238,.25), transparent 60%); animation: pulse 5s ease-in-out infinite; pointer-events: none; }
     .cta h2 { font-size: clamp(2.2rem, 5.6vw, 4rem); position: relative; }
+    .proj { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .proj > .card, .proj > .card:last-child { display: flex; flex-direction: column; grid-column: auto; min-width: 0; }
+    .proj .card p { flex: 1; }
+    .proj .stack { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 22px; }
+    .proj .stack span { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,.03); }
+    .proj .cmd { font-family: var(--mono); font-size: .82rem; color: var(--a2); background: rgba(5,8,20,.6); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; margin-bottom: 22px; overflow-x: auto; white-space: nowrap; }
+    .proj .cmd::before { content: "$ "; color: var(--dim); }
+    .proj .plinks { display: flex; flex-wrap: wrap; gap: 10px; position: relative; z-index: 1; }
+    .proj .plinks a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 999px; font-size: .86rem; font-weight: 600; border: 1px solid var(--border-hi); background: var(--card); transition: border-color .3s, transform .3s var(--ease); }
+    .proj .plinks a.pri { background: var(--grad); border-color: transparent; color: #fff; }
+    .proj .plinks a:hover { transform: translateY(-2px); border-color: var(--a2); }
+    .proj .plinks svg { width: 15px; height: 15px; }
     .cta .lead { margin: 0 auto 40px; position: relative; }
     .soc-grid { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; text-align: left; }
     .soc { display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 18px; background: rgba(5,8,20,.55); border: 1px solid var(--border); transition: transform .35s var(--ease), border-color .3s, box-shadow .3s; }
@@ -284,6 +297,7 @@
       .cards { grid-template-columns: 1fr; }
       .card:last-child { grid-column: span 1; }
       .soc-grid { grid-template-columns: 1fr 1fr; }
+      .proj { grid-template-columns: 1fr; }
       .tl { padding-left: 36px; }
       .tl-node { left: -36px; width: 24px; height: 24px; }
       .tl-line { left: 11px; }
@@ -338,6 +352,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#work">What I Do</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -474,6 +489,40 @@
           <h3>VINAX AI</h3>
           <p>Exploring and building artificial intelligence projects, from experiments to practical tools.</p>
           <span class="num">05</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects">
+      <p class="eyebrow rv">Projects</p>
+      <h2 class="rv" style="--d:.1s">Things I've <em>shipped</em></h2>
+      <p class="lead rv" style="--d:.2s">Live VINAX products you can install or use right now.</p>
+      <div class="proj">
+        <div class="card tilt rv" style="--d:.05s">
+          <span class="tag">npm · v2</span>
+          <div class="ico"><svg><use href="#code-i"/></svg></div>
+          <h3>VinaX Code</h3>
+          <p>An AI coding assistant that runs in your terminal. It reads your codebase, edits files, runs commands and works through multi-step tasks, using free and paid models from Groq, NVIDIA NIM, OpenRouter, Gemini, Anthropic and OpenAI.</p>
+          <div class="stack"><span>CLI</span><span>Node.js</span><span>AI agents</span><span>MCP</span></div>
+          <div class="cmd">npm i -g vinax-code</div>
+          <div class="plinks">
+            <a class="pri" href="https://www.npmjs.com/package/vinax-code" target="_blank" rel="noopener">View on npm <svg><use href="#arrow-ur"/></svg></a>
+            <a href="https://vinax-proxy.onrender.com/" target="_blank" rel="noopener">Docs <svg><use href="#arrow-ur"/></svg></a>
+          </div>
+          <span class="num">01</span>
+        </div>
+        <div class="card tilt rv" style="--d:.15s">
+          <span class="tag">Web · Android</span>
+          <div class="ico"><svg><use href="#music-i"/></svg></div>
+          <h3>VinaX Music</h3>
+          <p>A free, ad-free music streaming service for India. Songs in 12 languages, with synced lyrics, radio, Listen Together rooms, weekly mixes and personal recommendations, in the browser and on Android.</p>
+          <div class="stack"><span>12 languages</span><span>Lyrics</span><span>Offline</span><span>Android</span></div>
+          <div class="cmd">open vinaxmusic.online</div>
+          <div class="plinks">
+            <a class="pri" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener">Listen now <svg><use href="#arrow-ur"/></svg></a>
+          </div>
+          <span class="num">02</span>
         </div>
       </div>
     </section>

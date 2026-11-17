@@ -21,7 +21,7 @@
   {"@context":"https://schema.org","@type":"Person","name":"Sirimilla Vinay","jobTitle":"Network Administrator","url":"https://sirimillavinay.online/","image":"https://sirimillavinay.online/profile.jpg",
    "worksFor":[{"@type":"Organization","name":"Jobways.com"},{"@type":"Organization","name":"SportsMart.com"}],
    "address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressRegion":"Telangana","addressCountry":"IN"},
-   "owns":[{"@type":"SoftwareApplication","name":"VinaX Code","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux","url":"https://www.npmjs.com/package/vinax-code"},{"@type":"WebApplication","name":"VinaX Music","applicationCategory":"MultimediaApplication","url":"https://www.vinaxmusic.online/"}],
+   "owns":[{"@type":"SoftwareApplication","name":"VinaX Code","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Windows, Linux","url":"https://www.npmjs.com/package/vinax-code"},{"@type":"WebApplication","name":"VinaX Music","applicationCategory":"MultimediaApplication","url":"https://www.vinaxmusic.online/","featureList":"VinaX AI chat assistant"}],
    "sameAs":["https://github.com/Vinay1812007","https://www.linkedin.com/in/sirimillavinay","https://www.instagram.com/sirimilla_vinay","https://x.com/VINaYKINg1870","https://www.youtube.com/@ALLINONEWITHVINAY"]}
   </script>
   <style>
@@ -274,6 +274,15 @@
     .copy:hover { color: var(--text); border-color: var(--border-hi); }
     .copy.ok { color: var(--ok); border-color: rgba(52,211,153,.4); }
     .copy svg { width: 13px; height: 13px; }
+    .feat { display: flex; align-items: center; gap: 14px; padding: 12px 14px; margin-bottom: 20px; border-radius: 12px; border: 1px solid rgba(139,92,246,.3); background: linear-gradient(110deg, rgba(34,211,238,.06), rgba(139,92,246,.1)); transition: border-color .3s, transform .3s var(--ease); }
+    .feat:hover { border-color: var(--a3); transform: translateY(-2px); }
+    .feat .mini { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; color: #fff; background: var(--grad); flex: none; }
+    .feat .mini svg { width: 18px; height: 18px; }
+    .feat .txt { flex: 1; min-width: 0; line-height: 1.35; }
+    .feat b { display: block; font-family: var(--head); font-weight: 600; font-size: .95rem; }
+    .feat small { color: var(--muted); font-size: .82rem; }
+    .feat > svg { width: 16px; height: 16px; color: var(--dim); flex: none; transition: transform .3s var(--ease), color .3s; }
+    .feat:hover > svg { transform: translate(3px, -3px); color: var(--text); }
     .plinks { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; }
     .plinks a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; font-size: .88rem; font-weight: 600; border: 1px solid var(--border-hi); background: var(--card); transition: border-color .3s, transform .3s var(--ease), box-shadow .3s; }
     .plinks a.pri { background: var(--grad); border-color: transparent; color: #fff; box-shadow: 0 10px 24px -12px rgba(59,130,246,.9); }
@@ -541,10 +550,16 @@
           </a>
           <div class="pbody">
             <div class="ptitle"><h3><span class="mini"><svg><use href="#music-i"/></svg></span>VinaX Music</h3><span class="tag">Web · Android</span></div>
-            <p>A free, ad-free music streaming service for India. Songs in 12 languages, with synced lyrics, radio, Listen Together rooms, weekly mixes and personal recommendations, in the browser and on Android.</p>
-            <div class="stack"><span>12 languages</span><span>Synced lyrics</span><span>Offline</span><span>Android</span></div>
+            <p>A free, ad-free music streaming service for India. Songs in 12 languages, with synced lyrics, radio, Listen Together rooms, weekly mixes, personal recommendations and a built-in AI assistant, in the browser and on Android.</p>
+            <div class="stack"><span>12 languages</span><span>Synced lyrics</span><span>VinaX AI</span><span>Android</span></div>
+            <a class="feat" href="https://www.vinaxmusic.online/vinaxai" target="_blank" rel="noopener">
+              <span class="mini"><svg><use href="#ai-i"/></svg></span>
+              <span class="txt"><b>VinaX AI</b><small>The chat assistant built into VinaX Music</small></span>
+              <svg><use href="#arrow-ur"/></svg>
+            </a>
             <div class="plinks">
               <a class="pri" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener">Listen now <svg><use href="#arrow-ur"/></svg></a>
+              <a href="https://www.vinaxmusic.online/vinaxai" target="_blank" rel="noopener">Try VinaX AI <svg><use href="#arrow-ur"/></svg></a>
             </div>
           </div>
         </article>
@@ -585,13 +600,14 @@
           <span class="go">See the project <svg><use href="#arrow-ur"/></svg></span>
           <span class="num">04</span>
         </a>
-        <div class="card tilt rv" style="--d:.25s">
-          <span class="tag">VinaX</span>
+        <a class="card tilt rv" style="--d:.25s" href="#projects">
+          <span class="tag live-tag"><span class="dot"></span>Live</span>
           <div class="ico"><svg><use href="#ai-i"/></svg></div>
           <h3>VinaX AI</h3>
-          <p>Exploring and building artificial intelligence projects, from experiments to practical tools.</p>
+          <p>The AI assistant built into VinaX Music, plus artificial intelligence projects from experiments to practical tools.</p>
+          <span class="go">See the project <svg><use href="#arrow-ur"/></svg></span>
           <span class="num">05</span>
-        </div>
+        </a>
       </div>
     </section>
 

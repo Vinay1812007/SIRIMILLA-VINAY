@@ -920,7 +920,6 @@
     .d3-door.flip { transform-origin: 100% 50%; }
     .d3-flap { transform-origin: 50% 0; }
     .d3-deep { transform-origin: 50% 50%; }
-    .d3-ribbon { transform-origin: 50% 50%; }
     /* tiles: real depth — the glass panel floats in front of the art */
     .tile { transition: none; transform-style: preserve-3d; will-change: transform; }
     .tile .art { transform: translateZ(0); }
@@ -1392,7 +1391,7 @@
             <h2 class="ed" data-reveal="lines">Networks by day, <em>VinaX</em> by night.</h2>
             <p class="body" data-reveal="up">I'm <strong>Sirimilla Vinay</strong> (you'll also see Vinay Sirimilla), based in Hyderabad, Telangana. Right now I hold three roles: <strong>Network Administrator at SportsMart.com</strong> since July 2025, <strong>Network Administrator at Jobways.com</strong> since September 2024, and <strong>Product Listing Manager at SportsMart.com</strong>, also since July 2025. Both network roles are full-time and on-site.</p>
             <p class="body" data-reveal="up">On the network side I build and look after the LAN, Wi-Fi, routers and switches that teams rely on all day, and I'm the first call when something breaks. As Product Listing Manager at SportsMart.com I make sure every e-commerce listing is accurate, consistent and ready to sell.</p>
-            <p class="body" data-reveal="up">My grounding is a <strong>National Trade Certificate</strong> in <strong>Computer Operator &amp; Programming Assistant (COPA)</strong> from Govt. ITI Mahabubabad. Outside work I build <strong>VinaX</strong>, an AI coding assistant on npm, a free music streaming app and the AI assistant inside it, and I share what I learn on my YouTube channel, <strong>ALL IN ONE WITH VINAY</strong>.</p>
+            <p class="body" data-reveal="up">My grounding is a <strong>National Trade Certificate</strong> in <strong>Computer Operator &amp; Programming Assistant (COPA)</strong> from Govt. ITI Mahabubabad. Outside work I build <strong>VinaX</strong>, an AI coding assistant on npm, a free music streaming app and the AI assistant inside it.</p>
             <dl class="facts" data-reveal="stagger">
               <div><dt>Location</dt><dd>Hyderabad, Telangana, India</dd></div>
               <div><dt>Current roles</dt><dd>Network Administrator (SportsMart.com, Jobways.com) · Product Listing Manager (SportsMart.com)</dd></div>
@@ -1987,7 +1986,7 @@
          I   About       tile swings on its axis as you scroll; glass panel floats in front
          II  Experience  role cards rise up off the "table" (hinged at the bottom)
          III Projects    cards swing in like doors from alternating sides; holo tilt + glare
-         IV  Skills      rows flip down like a rolodex; marquee rides a tilted 3D ribbon
+         IV  Skills      rows flip down like a rolodex
          V   Education   rows slide forward out of depth
          VI  Contact     extruded 3D headline follows the cursor; tilting social tiles
        All driven from the single rAF loop below; off for reduced motion.
@@ -2003,7 +2002,6 @@
       add("#projects .ann", "door", .8);
       add("#skills .row", "flap", .45);
       add("#education .row", "deep", .6);
-      add("#skills .marquee", "ribbon", 1);
 
       $$(".tile").forEach(t => {
         const sec = t.closest("section")?.id || "";
@@ -2051,7 +2049,6 @@
         else if (d.kind === "door") { const s = d.flip ? -1 : 1; tf = `perspective(1600px) translate3d(${(-s * q * 60).toFixed(1)}px,0,${(-q * 180).toFixed(1)}px) rotateY(${(s * q * 32).toFixed(2)}deg)`; op = .2 + .8 * e; }
         else if (d.kind === "flap") { tf = `perspective(1000px) rotateX(${(-q * 88).toFixed(2)}deg)`; op = Math.pow(e, .6); }
         else if (d.kind === "deep") { tf = `perspective(1200px) translate3d(0,${(q * 50).toFixed(1)}px,${(-q * 460).toFixed(1)}px) rotateX(${(q * 24).toFixed(2)}deg)`; op = e; }
-        else if (d.kind === "ribbon") { tf = `perspective(900px) rotateX(${(16 + c * 18).toFixed(2)}deg) rotateZ(${(-2.5 + c * 2).toFixed(2)}deg)`; }
         const key = tf + op.toFixed(3);
         if (key !== d.last) { d.el.style.transform = tf; d.el.style.opacity = op.toFixed(3); d.last = key; }
       });

@@ -26,25 +26,27 @@
   <meta property="og:title" content="Sirimilla Vinay — Network Administrator, Hyderabad" />
   <meta property="og:description" content="Network Administrator at Jobways.com and SportsMart.com, Hyderabad · Product Listing Manager at SportsMart.com · Builder of VinaX Code, VinaX Music and VinaX AI." />
   <meta property="og:url" content="https://sirimillavinay.online/" />
-  <meta property="og:image" content="https://sirimillavinay.online/profile.jpg" />
-  <meta property="og:image:width" content="576" />
-  <meta property="og:image:height" content="576" />
-  <meta property="og:image:alt" content="Portrait of Sirimilla Vinay" />
+  <meta property="og:image" content="https://sirimillavinay.online/assets/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Sirimilla Vinay, Network Administrator at Jobways.com and SportsMart.com, Hyderabad" />
   <meta property="profile:first_name" content="Vinay" />
   <meta property="profile:last_name" content="Sirimilla" />
   <meta property="profile:username" content="sirimillavinay" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@VINaYKINg1870" />
   <meta name="twitter:creator" content="@VINaYKINg1870" />
   <meta name="twitter:title" content="Sirimilla Vinay — Network Administrator, Hyderabad" />
   <meta name="twitter:description" content="Network Administrator at Jobways.com and SportsMart.com · Product Listing Manager at SportsMart.com · Builder of VinaX." />
-  <meta name="twitter:image" content="https://sirimillavinay.online/profile.jpg" />
-  <meta name="twitter:image:alt" content="Portrait of Sirimilla Vinay" />
+  <meta name="twitter:image" content="https://sirimillavinay.online/assets/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Sirimilla Vinay, Network Administrator at Jobways.com and SportsMart.com, Hyderabad" />
   <link rel="icon" type="image/jpeg" sizes="576x576" href="/profile.jpg" />
   <link rel="apple-touch-icon" href="/profile.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" /></noscript>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[
    {"@type":"WebSite","@id":"https://sirimillavinay.online/#website","url":"https://sirimillavinay.online/","name":"Sirimilla Vinay","alternateName":["Vinay Sirimilla","sirimillavinay.online"],"inLanguage":"en-IN","publisher":{"@id":"https://sirimillavinay.online/#person"}},
@@ -365,7 +367,7 @@
     /* hero entrance */
     .h-in { opacity: 0; transform: translateY(18px); transition: opacity .9s var(--ease), transform 1.1s var(--ease-out); transition-delay: var(--d, 0s); }
     .ready .h-in { opacity: 1; transform: none; }
-    .figure.h-in { transform: translateY(40px) scale(.97); }
+    .figure.h-in { opacity: 1; transform: translateY(40px) scale(.97); } /* no fade: the portrait is the LCP element, so paint it at once */
     .ready .figure.h-in { transform: none; }
 
     /* =====================================================================
@@ -707,7 +709,7 @@
 
   <!-- ============ HEADER ============ -->
   <header class="hdr on-dark" id="hdr">
-    <a href="#home" class="brand" aria-label="Sirimilla Vinay, back to top"><b>SV</b><span>Sirimilla Vinay</span></a>
+    <a href="#home" class="brand" aria-label="SV Sirimilla Vinay, back to top"><b>SV</b><span>Sirimilla Vinay</span></a>
     <div class="hdr-mid">
       <button class="hbtn" id="secBtn" type="button" aria-expanded="false" aria-controls="secMenu">Sections <svg class="chev"><use href="#chev-i"/></svg></button>
       <button class="hbtn icon" id="findBtn" type="button" aria-label="Search sections and links" aria-haspopup="dialog"><svg><use href="#search-i"/></svg></button>
@@ -750,9 +752,9 @@
       </div>
       <!-- layer 2: the figure (your photo in a niche; image slot "hero-figure" swaps in a cut-out) -->
       <div class="hero-layer l-fig" data-depth=".45" data-sy=".12">
-        <div class="figure h-in" style="--d:.2s" data-art="hero-figure">
+        <div class="figure cutout h-in" style="--d:.2s" data-art="hero-figure">
           <div class="halo" aria-hidden="true"></div>
-          <div class="niche"><img id="heroFig" src="profile.jpg" alt="Portrait of Sirimilla Vinay" width="576" height="576" fetchpriority="high" decoding="async" /></div>
+          <div class="niche"><img id="heroFig" src="assets/art/hero-figure.webp" alt="Portrait of Sirimilla Vinay" width="493" height="556" fetchpriority="high" decoding="async" /></div>
           <div class="placard p1"><strong data-years>2+</strong><span>Years in<br />networking</span></div>
           <div class="placard p2"><span class="dot"></span><span>Currently in<br /><b>three roles</b></span></div>
         </div>
@@ -862,7 +864,7 @@
             <div class="art tone-lapis" data-art="about" data-reveal="media"><div class="zoom"><div class="paint"></div><svg class="lines" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#art-persp"/></svg></div></div>
             <div class="term glass panel">
               <div class="pt-top"><i></i><i></i><i></i><span>vinay@sv-net: ~</span></div>
-              <div class="term-body" id="term" aria-label="Terminal summary: Sirimilla Vinay holds three roles: Network Administrator at SportsMart.com, Network Administrator at Jobways.com, and Product Listing Manager at SportsMart.com. Builder of VinaX."></div>
+              <div class="term-body" id="term" role="img" aria-label="Terminal summary: Sirimilla Vinay holds three roles: Network Administrator at SportsMart.com, Network Administrator at Jobways.com, and Product Listing Manager at SportsMart.com. Builder of VinaX."></div>
             </div>
           </div>
         </div>
@@ -983,7 +985,7 @@
 
           <article class="ann">
             <div class="tile">
-              <a class="art shot tone-lapis" href="https://vinax-proxy.onrender.com/" target="_blank" rel="noopener" aria-label="Open the VinaX Code docs (opens in a new tab)" data-reveal="media">
+              <a class="art shot tone-lapis" href="https://vinax-proxy.onrender.com/" target="_blank" rel="noopener" aria-label="vinax-proxy.onrender.com: open the VinaX Code docs (opens in a new tab)" data-reveal="media">
                 <span class="zoom"><img src="assets/vinax-code.jpg" alt="VinaX Code docs page showing the CLI running in a terminal" width="1120" height="700" loading="lazy" decoding="async" /></span>
                 <span class="glass url-chip">vinax-proxy.onrender.com</span>
               </a>
@@ -1011,7 +1013,7 @@
 
           <article class="ann flip">
             <div class="tile">
-              <a class="art shot tone-dusk" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener" aria-label="Open VinaX Music (opens in a new tab)" data-reveal="media">
+              <a class="art shot tone-dusk" href="https://www.vinaxmusic.online/" target="_blank" rel="noopener" aria-label="vinaxmusic.online: open VinaX Music (opens in a new tab)" data-reveal="media">
                 <span class="zoom"><img src="assets/vinax-music.jpg" alt="VinaX Music home screen with trending songs and language filters" width="1120" height="700" loading="lazy" decoding="async" /></span>
                 <span class="glass url-chip">vinaxmusic.online</span>
               </a>
@@ -1199,7 +1201,7 @@
   <footer class="cosmic" data-theme="dark">
     <div class="wrap">
       <div class="f-top">
-        <a href="#home" class="brand" aria-label="Sirimilla Vinay, back to top"><b>SV</b><span>Sirimilla Vinay</span></a>
+        <a href="#home" class="brand" aria-label="SV Sirimilla Vinay, back to top"><b>SV</b><span>Sirimilla Vinay</span></a>
         <nav class="f-index" aria-label="Footer">
           <a class="idx-a ul" href="#about"><span class="rn">I</span><span class="lb">About</span></a>
           <a class="idx-a ul" href="#experience"><span class="rn">II</span><span class="lb">Experience</span></a>
@@ -1243,7 +1245,7 @@
        ===================================================================== */
     const ART = {
       "hero-bg": "",          // e.g. "assets/art/hero-bg.webp"
-      "hero-figure": "",      // transparent PNG/WebP cut-out of you
+      "hero-figure": "assets/art/hero-figure.webp", // transparent cut-out of you
       "about": "",
       "exp-sportsmart": "",
       "exp-jobways": ""
@@ -1264,7 +1266,7 @@
       const src = ART[el.dataset.art];
       if (!src) return;
       if (el.dataset.art === "hero-figure") {
-        const img = $("#heroFig", el); img.src = src; img.alt = "Renaissance-style portrait of Sirimilla Vinay"; el.classList.add("cutout"); return;
+        const img = $("#heroFig", el); img.src = src; img.alt = "Portrait of Sirimilla Vinay"; el.classList.add("cutout"); return;
       }
       const img = new Image(); img.className = "art-img"; img.alt = ""; img.decoding = "async";
       if (el.dataset.art !== "hero-bg") img.loading = "lazy";

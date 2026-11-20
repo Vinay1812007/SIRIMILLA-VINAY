@@ -1,0 +1,31 @@
+# Sirimilla Vinay
+
+> Sirimilla Vinay (also written Vinay Sirimilla) is a Network Administrator in Hyderabad, Telangana, India, with three current roles: Network Administrator at SportsMart.com (since July 2025), Network Administrator at Jobways.com (since September 2024) and Product Listing Manager at SportsMart.com (since July 2025). Vinay also builds VinaX, a personal line of free software, and is not looking for new roles.
+
+## Website
+
+- [sirimillavinay.online](https://sirimillavinay.online/): personal website with about, experience, projects, skills, education and contact sections
+
+## Projects
+
+- [VinaX Code](https://www.npmjs.com/package/vinax-code): an AI coding assistant for the terminal (npm, macOS / Windows / Linux). Docs: https://vinax-proxy.onrender.com/
+- [VinaX Music](https://www.vinaxmusic.online/): free, ad-free music streaming built for India, with the VinaX AI assistant at https://www.vinaxmusic.online/vinaxai
+
+## Education
+
+- National Trade Certificate (NTC), Computer Operator & Programming Assistant (COPA), Govt. ITI Mahabubabad, 2023–2024
+- Secondary School Certificate (SSC), TSTWR School (Boys), Maripeda, 2023
+
+## Profiles
+
+- LinkedIn: https://www.linkedin.com/in/sirimillavinay
+- GitHub: https://github.com/Vinay1812007
+- YouTube (ALL IN ONE WITH VINAY): https://www.youtube.com/@ALLINONEWITHVINAY
+- Instagram: https://www.instagram.com/sirimilla_vinay
+- Facebook: https://www.facebook.com/vinay.sirimilla.10
+- X: https://x.com/VINaYKINg1870
+- npm: https://www.npmjs.com/~sirimillavinay
+
+## Contact
+
+- Email: sirimillavinay56@gmail.com
